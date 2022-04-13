@@ -1,0 +1,43 @@
+{
+    "name": "vscode-smt",
+    "displayName": "SMT",
+    "description": "Language support for SMT-LIB",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "smt",
+                "aliases": [
+                    "smt",
+                    "smt2",
+                    "sygus"
+                ],
+                "extensions": [
+                    "smt2",
+                    "sy"
+                ],
+                "configuration": "language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "smt",
+                "scopeName": "source.smt",
+                "path": "syntaxes/smt.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run build",
+        "build": "npx js-yaml syntaxes/smt.tmLanguage.yaml > syntaxes/smt.tmLanguage.json"
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0"
+    }
+}
